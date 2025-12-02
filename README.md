@@ -12,15 +12,15 @@ This is a macropad built for playing games. It has an OLED screen, allowing smal
 
 ## Schematic
 
-![Schematic](https://github.com/arnavthapar/arnavs-macropad/blob/main/assets/schematic.png)
+![Schematic](https://github.com/arnavthapar/arnavs-game-macropad/blob/main/assets/schematic.png)
 
 ## PCB
 
-![PCB](https://github.com/arnavthapar/arnavs-macropad/blob/main/assets/pcb.png)
+![PCB](https://github.com/arnavthapar/arnavs-game-macropad/blob/main/assets/pcb.png)
 
 The dimensions of the PCB are 65 mm by 92.5 mm.
 
-## Case
+## Cases
 
 Not Done
 

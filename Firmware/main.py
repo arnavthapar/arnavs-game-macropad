@@ -28,14 +28,14 @@ class Game():
                 self.selected += 1
                 if self.selected > 25:
                     self.selected = 0
-                oled.text(f"{self.letters[self.selected]}", 0, 0, 1)
+                oled.text(f"{''.join(self.c_letters)}{self.letters[self.selected]}", 0, 0, 1)
                 oled.show()
             elif key == KC.DOWN:
                 oled.fill(0)
                 self.selected -= 1
                 if self.selected < 0:
                     self.selected = 25
-                oled.text(f"{self.letters[self.selected]}", 0, 0, 1)
+                oled.text(f"{''.join(self.c_letters)}{self.letters[self.selected]}", 0, 0, 1)
                 oled.show()
             # Choose Letter
             elif key == KC.A:
@@ -58,12 +58,18 @@ class Game():
                         oled.text("You won!", 0, 0, 1)
                         oled.show()
                         self.done = True
-                    elif self.guess > 5:
+                    elif self.guess == 6:
                         oled.fill(0)
                         oled.text("You lost.", 0, 0, 1)
                         oled.show()
                         self.done = True
                     self.c_letters = []
+            elif key == KC.B:
+                if len(self.c_letters) > 0:
+                    self.c_letters.pop(len(self.c_letters)-1)
+                    oled.fill(0)
+                    oled.text(f"{"".join(self.c_letters)}{self.letters[self.selected]}", 0, 0, 1)
+                    oled.show()
 
 
 i2c = busio.I2C(board.GP7, board.GP6)

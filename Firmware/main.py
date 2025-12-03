@@ -5,18 +5,65 @@ from kmk.scanners.keypad import KeysScanner
 from kmk.keys import KC
 import busio
 import adafruit_ssd1306
+from time import sleep
 
 class Game():
     def __init__(self):
-        pass
+        self.c_letters = []
+        self.word = "catch"
+        oled.fill(0)
+        oled.text("A", 0, 0, 1)
+        oled.show()
+        self.letters = [chr(i) for i in range(ord("A"), ord("Z") + 1)]
+        self.selected = 0
+        self.done = False
+        self.guess = 0
     def key(self, key, pressed):
-        if pressed:
-            oled.fill(0)
-            oled.text(f"{key}", 0, 0, 1)
-            oled.show()
-        else:
-            oled.fill(0)
-            oled.show()
+        # A game would go here (example here is wordle)
+        # This is a very basic implementation of wordle, and does not have the word checks and randomization
+        if pressed and not self.done:
+            # Letter Selection
+            if key == KC.UP:
+                oled.fill(0)
+                self.selected += 1
+                if self.selected > 25:
+                    self.selected = 0
+                oled.text(f"{self.letters[self.selected]}", 0, 0, 1)
+                oled.show()
+            elif key == KC.DOWN:
+                oled.fill(0)
+                self.selected -= 1
+                if self.selected < 0:
+                    self.selected = 25
+                oled.text(f"{self.letters[self.selected]}", 0, 0, 1)
+                oled.show()
+            # Choose Letter
+            elif key == KC.A:
+                self.c_letters.append(self.letters[self.selected])
+                if len(self.c_letters) == 5:
+                    shown = ""
+                    for idx, i in enumerate(self.c_letters):
+                        if self.word[idx] == i:
+                            shown += f"~{i}~"
+                        elif i in self.word:
+                            shown += f"|{i}|"
+                        else: shown += i
+                    oled.fill(0)
+                    oled.text(f"{shown}", 0, 0, 1)
+                    oled.show()
+                    sleep(2)
+                    self.guess += 1
+                    if "".join(self.c_letters) == self.word:
+                        oled.fill(0)
+                        oled.text("You won!", 0, 0, 1)
+                        oled.show()
+                        self.done = True
+                    elif self.guess > 5:
+                        oled.fill(0)
+                        oled.text("You lost.", 0, 0, 1)
+                        oled.show()
+                        self.done = True
+                    self.c_letters = []
 
 
 i2c = busio.I2C(board.GP7, board.GP6)

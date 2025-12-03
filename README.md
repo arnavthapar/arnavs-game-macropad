@@ -36,7 +36,7 @@ BOM:
 
 The dimensions of the PCB are 65 mm by 92.5 mm.
 
-## Cases
+## Case
 
 Not Done
 

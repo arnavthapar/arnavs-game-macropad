@@ -44,9 +44,9 @@ class Game():
                     shown = ""
                     for idx, i in enumerate(self.c_letters):
                         if self.word[idx] == i:
-                            shown += f"~{i}~"
+                            shown += f"|{i}|" # Green
                         elif i in self.word:
-                            shown += f"|{i}|"
+                            shown += f"~{i}~" # Yellow
                         else: shown += i
                     oled.fill(0)
                     oled.text(f"{shown}", 0, 0, 1)

@@ -4,8 +4,6 @@
 ![Made with KiCad](https://img.shields.io/badge/Made%20with-KiCad-blue)
 ![Built with Fusion 360](https://img.shields.io/badge/CAD-Fusion%20360-orange)
 
-Unfinished
-
 Submission for Hackpad.
 
 This is a macropad built for playing games. It has an OLED screen, allowing smaller games to be shown. There are 6 buttons, which can be used as the 4 directions and then 2 more for other actions.
@@ -38,7 +36,7 @@ The dimensions of the PCB are 65 mm by 92.5 mm.
 
 ## Case
 
-Not Done
+![Case](https://github.com/arnavthapar/arnavs-game-macropad/blob/main/assets/case.png)
 
 ## Assembly
 

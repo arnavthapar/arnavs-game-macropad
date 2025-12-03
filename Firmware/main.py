@@ -45,7 +45,7 @@ class Game():
                     for idx, i in enumerate(self.c_letters):
                         if self.word[idx] == i:
                             shown += f"|{i}|" # Green
-                        elif i in self.word:
+                        elif i in self.word: # Technically the wrong way to check since amount of letter counts
                             shown += f"~{i}~" # Yellow
                         else: shown += i
                     oled.fill(0)

@@ -38,6 +38,12 @@ The dimensions of the PCB are 65 mm by 92.5 mm.
 
 ![Case](https://github.com/arnavthapar/arnavs-game-macropad/blob/main/assets/case.png)
 
+## 3D Model
+
+This is a estimate of what the final product should probably look like.
+
+![3D Model](https://github.com/arnavthapar/arnavs-game-macropad/blob/main/assets/model.png)
+
 ## Assembly
 
 Assembling will not take very long. Once the PCB is completed (the OLED screen, XIAO, and buttons are all connected), it should be able to be put into the case. Then you can put the top of the case on, and it's done.
